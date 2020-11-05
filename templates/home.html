@@ -60,21 +60,21 @@
               <p>{{ msg.text }}</p>
             </div>
             {% if msg.id in favorited_messages %}
-            <form method="POST" action="/users/remove_like/{{ msg.id }}" id="messages-form">
-              <button id="{msg.id}" class="not-followed btn btn-sm btn-primary">
+            <div id="messages-form">
+              <button data-id={{msg.id}} class="followed btn btn-sm btn-primary">
                    <i class="fa fa-thumbs-up"></i>
               </button>
-              </form>
+            </div>
               {% elif msg.user_id == g.user.id%}
             {% else %}
-            <form method="POST" action="/users/add_like/{{ msg.id }}" id="messages-form">
-              <button id="{{msg.id}}" class="followed
+            <div id="messages-form">
+              <button data-id={{msg.id}} class="not-followed
                 btn 
                 btn-sm 
                 btn-secondary">
               <i class="fa fa-thumbs-up"></i>
               </button>
-              </form>
+            </div>
             {% endif %}
              
 
